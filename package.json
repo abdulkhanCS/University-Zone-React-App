@@ -21,7 +21,7 @@
   },
   "scripts": {
     "predeplot": "npm run build",
-    "deploy": "git-pages -d build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
