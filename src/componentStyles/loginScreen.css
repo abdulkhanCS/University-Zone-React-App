@@ -4,8 +4,11 @@
 }
 
 body{
+    font-family: 'Kanit', sans-serif;
+}
+#login-wrap{
     height: 100vh;
-    background-image: linear-gradient(to bottom right, #49d5d1, #202b98);
+    background-image: linear-gradient(to bottom right, #3C99DC, #66D3FA);
 }
 
 .credentials{
@@ -19,10 +22,12 @@ body{
 }
 
 #register-button{
-    color: #202b98;
+    background-color: #3C99DC;
+    color: whitesmoke;
     font-size: 12px;
-    border-radius: 15%;
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.15);
+    font-weight: bolder;
+    border-radius: 9%;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.15);
     height: 2rem;
     width: 4rem;
     display: flex;
@@ -36,10 +41,12 @@ body{
 }
 
 #login-button{
-    color: #202b98;
+    background-color: #3C99DC;
+    color: whitesmoke;
     font-size: 12px;
-    border-radius: 15%;
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.15);
+    font-weight: bolder;
+    border-radius: 9%;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.15);
     height: 2rem;
     width: 4rem;
     display: flex;
@@ -60,6 +67,7 @@ body{
 }
 
 #login{
+    font-family: 'Kanit', sans-serif;
     height: 60%;
     width: 30%;
     position: absolute;
@@ -67,6 +75,7 @@ body{
     right: 35%;
     background-color: whitesmoke;
     border-radius: 50%;
+    border: 2px solid #3C99DC;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -84,12 +93,6 @@ input{
 
 input:focus{
     outline: 0;
-    animation-name: focusInput;
-    animation-duration: 50ms;
+    border-bottom: 3px solid #49d5d1;
 }
 
-@keyframes focusInput{
-    from{border-bottom: 0.5px solid #49d5d1;}
-    to{border-bottom: 3px solid #49d5d1;}
-    
-}

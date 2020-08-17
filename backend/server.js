@@ -10,6 +10,7 @@ const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: false })); // Parses urlencoded bodies
 app.use(bodyParser.urlencoded({ extended: false })); // Parses urlencoded bodies
 app.use(bodyParser.json());
 
@@ -39,6 +40,8 @@ connection.on('error', (error) => {
 
 const userRouter = require('./routes/user')
 app.use('/user', userRouter)
+const homepageRouter = require('./routes/home')
+app.use('/homepage', homepageRouter)
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

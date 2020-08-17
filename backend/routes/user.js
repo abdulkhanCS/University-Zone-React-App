@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 // const urlencodedParser = bodyParser.urlencoded({ extended: false}) //middleware
 
 router.route('/').get((req, res) => {
-    User.find()
+    User.find({username: req.query.username})
     .then(users => res.json(users))
     .catch(err =>res.statusMessage(400).json('Error: ' + err))
 })
@@ -16,8 +16,9 @@ router.route('/register').post((req, res) => {
     const username = req.body.username
     const password = req.body.password
     const email = req.body.email
+    const collegeGroups = req.body.collegeGroups
     const admin = req.body.admin
-    const newUser = new User({firstName, lastName, username, password, email, admin})
+    const newUser = new User({firstName, lastName, username, password, email, collegeGroups, admin})
 
     newUser.save()
     .then(() => res.json('User registered!'))
@@ -25,29 +26,29 @@ router.route('/register').post((req, res) => {
 })
 
 router.route('/:id').get((req, res) => {
-    // User.findById(req.params.id)
-    // .then(user => res.json(user))
-    // .catch(err => res.status(400).json('Error ' + err))
+    User.findById(req.params.id)
+    .then(user => res.json(user))
+    .catch(err => res.status(400).json('Error ' + err))
 })
 
 router.route('/delete/:id').delete((req, res) => {
-    // User.findByIdAndDelete(req.params.id)
-    // .then(() => res.json('User Deleted'))
-    // .catch(err => res.status(400).json('Error ' + err))
+    User.findByIdAndDelete(req.params.id)
+    .then(() => res.json('User Deleted'))
+    .catch(err => res.status(400).json('Error ' + err))
 })
 
 router.route('/update/:id').post((req, res) => {
-    // User.findById(req.params.id)
-    // .then(user => {
-    //     user.username = req.body.username
-    //     user.password = req.body.password
-    //     user.email = req.body.email
+    User.findById(req.params.id)
+    .then(user => {
+        user.username = req.body.username
+        user.password = req.body.password
+        user.email = req.body.email
 
-    //     user.save()
-    //         .then(() => res.json('User updated'))
-    //         .catch(err => res.status(400).json('Error ' + err))
-    // })
-    // .catch(err => res.status(400).json('Error ' + err))
+        user.save()
+            .then(() => res.json('User updated'))
+            .catch(err => res.status(400).json('Error ' + err))
+    })
+    .catch(err => res.status(400).json('Error ' + err))
 })
 
 module.exports = router

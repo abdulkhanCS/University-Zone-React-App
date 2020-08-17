@@ -1,0 +1,22 @@
+#collegeGroup-preview-background{
+    width: 158.5px;
+    height: 155px;
+    background-color: #D5F3FE;
+    margin: 4px;
+    border-radius: 25%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#collegeGroup-preview-background:hover{
+    opacity: 0.8;
+}
+
+#collegeGroup-preview-name{
+    color: #202b98;
+    width: 50%;
+    height: 50%;
+}

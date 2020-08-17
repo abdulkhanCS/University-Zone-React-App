@@ -30,6 +30,9 @@ const userSchema = new Schema(
       required: true,
       trim: true,
     },
+    collegeGroups: {
+      type: Array
+    },
     admin: {
       type: Boolean,
       required: true,

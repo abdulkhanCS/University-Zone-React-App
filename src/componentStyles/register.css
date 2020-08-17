@@ -3,13 +3,9 @@
     padding: 0;
 }
 
-body{
-    height: 100vh;
-    background-image: linear-gradient(to bottom right, #49d5d1, #202b98);
-}
-
 #submit-registration{
-    color: #202b98;
+    background-color: #3C99DC;
+    color: white;
     font-size: 12px;
     border-radius: 15%;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.15);
@@ -18,7 +14,6 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #49d5d1;
     cursor: pointer;
    text-decoration: none;
 }
@@ -56,9 +51,11 @@ body{
     bottom: 2rem;
 }
 
-#view{
+#register-wrap{
     display:flex;
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
+    height: 100vh;
+    background-image: linear-gradient(to bottom right, #3C99DC, #66D3FA);
 }
