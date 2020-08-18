@@ -32,7 +32,7 @@ export default class loginScreen extends React.Component {
 
   onSubmit(e) {
     const thisUsername = this.state.username;
-    Axios.get("http://localhost:3000/user/", {
+    Axios.get(process.env.PORT + "/user/", {
       params: {
         username: thisUsername,
       },
