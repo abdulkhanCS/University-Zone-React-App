@@ -48,7 +48,7 @@ export default class register extends React.Component {
         this.setState({ password: hash });
       })
       .catch((err) => {
-        console.log("at getPasssword", err);
+        console.log("at getPassword", err);
       });
   }
 

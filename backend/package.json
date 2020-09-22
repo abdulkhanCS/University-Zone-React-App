@@ -16,5 +16,5 @@
     "express": "^4.17.1",
     "mongoose": "^5.9.20"
   },
-  "proxy": "https://uni-sphere.herokuapp.com/"
+  "proxy": "http://localhost:5000"
 }

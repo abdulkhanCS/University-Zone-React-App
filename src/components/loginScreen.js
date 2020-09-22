@@ -30,16 +30,16 @@ export default class loginScreen extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-  onSubmit(e) {
+  async onSubmit(e) {
     const thisUsername = this.state.username;
-    Axios.get(process.env.PORT + "/user/", {
+    Axios.get("http://localhost:3000/user/", {
       params: {
         username: thisUsername,
       },
     }).then((response) => {
       console.log(response.status);
       this.setState({data: response.data[0]});
-      if (this.state.data != null) {
+      if (this.state.data != null) { // user name found
         const bcrypt = require("bcryptjs");
         console.log(this.state.password, " + ", this.state.data.password);
         return new Promise((resolve, reject) => {
@@ -69,7 +69,10 @@ export default class loginScreen extends React.Component {
       } else {
         console.log("No matching user found");
       }
-    });
+    })
+    .catch((err) => {
+      console.log(err)
+    })
   }
 
   isLoggedIn(){
