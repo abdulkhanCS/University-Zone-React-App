@@ -42,6 +42,8 @@ const userRouter = require('./routes/user')
 app.use('/user', userRouter)
 const homepageRouter = require('./routes/home')
 app.use('/homepage', homepageRouter)
+const forumRouter = require('./routes/forum')
+app.use('/forum', forumRouter)
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

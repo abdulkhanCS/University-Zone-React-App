@@ -34,7 +34,7 @@ export default class loginScreen extends React.Component {
     const thisUsername = this.state.username;
     Axios.get("http://localhost:3000/user/", {
       params: {
-        username: thisUsername,
+        username: thisUsername
       },
     }).then((response) => {
       console.log(response.status);

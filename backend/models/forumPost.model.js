@@ -1,47 +1,55 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema 
-const userSchema = new Schema(
+const postSchema = new Schema(
   {
+    college: {
+      type: String,
+      required: true,
+      trim: true,
+      unique: false
+    },
     firstName: {
       type: String,
       required: true,
       trim: true,
+      unique: false
     },
     lastName: {
       type: String,
       required: true,
       trim: true,
+      unique: false
     },
     username: {
       type: String,
+      unique: false,
       required: true,
-      unique: true,
       minLength: 3,
-      trim: true,
+      trim: true
     },
-    password: {
+    postTitle: {
       type: String,
       required: true,
       minLength: 3,
+      unique: false
+    },
+    postText: {
+      type: String,
+      required: true,
+      minLength: 3,
+      unique: false
     },
     email: {
       type: String,
       required: true,
       trim: true,
-    },
-    collegeGroups: {
-      type: Array
-    },
-    admin: {
-      type: Boolean,
-      required: true,
-    },
+      unique: false
+    }
   },
   {
     timestamps: true,
   }
 )
 
-const User = mongoose.model('User', userSchema)
-module.exports = User; 
-
+const Post = mongoose.model('ForumPost', postSchema)
+module.exports = Post; 

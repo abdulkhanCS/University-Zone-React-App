@@ -16,7 +16,7 @@ export default class collegeGroup extends React.Component{
         return(
         <div id = "collegeGroup-preview-background">
             <h6 id = "collegeGroup-preview-name">
-                College name
+                {this.props.name}
             </h6>
         </div>
         )

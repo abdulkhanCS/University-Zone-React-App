@@ -1,7 +1,7 @@
 #collegeGroup-preview-background{
-    width: 158.5px;
-    height: 155px;
-    background-color: #D5F3FE;
+    width: 240px;
+    height: 220px;
+    background-color: #66D3FA;
     margin: 4px;
     border-radius: 25%;
     cursor: pointer;
@@ -9,6 +9,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    text-align: center;
 }
 
 #collegeGroup-preview-background:hover{
@@ -16,7 +17,9 @@
 }
 
 #collegeGroup-preview-name{
-    color: #202b98;
+    color: whitesmoke;
+    font-size: 1rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     width: 50%;
     height: 50%;
 }

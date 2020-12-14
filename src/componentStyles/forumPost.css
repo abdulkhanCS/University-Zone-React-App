@@ -1,0 +1,45 @@
+#post-container{
+    width: 80%;
+    height: 375px;
+    background-color: powderblue;
+    position: relative;
+    left: 10%;
+    border-radius: 1.75%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#forum-post-name{
+    width: 100%;
+    position: absolute;
+    font-size: 36px;
+    text-align: center;
+    right: 0%;
+    top: 7%;
+}
+
+#forum-post-title{
+    width: 90%;
+    position: relative;
+    left: 5%;
+    top: 30%;
+    font-size:20px;
+    text-align: center;
+}
+
+#forum-post-text{
+    width: 90%;
+    position: relative;
+    left: 5%;
+    top: 30%;
+    font-size: 14px;
+}
+
+#forum-post-profile-pic{
+    width: 95px;
+    height: 95px;
+    position: absolute;
+    top: 2%;
+    left: 30%;
+    border-radius: 50%;
+}

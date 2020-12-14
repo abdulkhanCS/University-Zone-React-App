@@ -107,20 +107,24 @@ export default class home extends React.Component {
     }
     else if(validCollege){
      this.updateColleges(chosenCollege)
-      this.props.dismissOnSubmit()
+      this.props.dismissOnSubmit(chosenCollege)
       console.log("Valid college")
     }
   }
 
-  updateColleges(chosenCollege){
+  updateColleges(chosenCollege){ 
     Axios.post("/homepage", {
       body : {
-        chosenCollege: chosenCollege
+        college: chosenCollege,
+        _id: this.props.thisUserId
       }, 
       params :{
         _id: this.props.thisUserId
       }
-    }).then((res) => console.log(res.data))
+    }).then((res) => {
+      console.log(res)
+      console.log(res.data)
+    })
     .catch((err) => console.log("error ", err))
   }
 
@@ -137,6 +141,7 @@ export default class home extends React.Component {
           type="text"
           id="search-input"
           placeholder="Search..."
+          autoComplete = "none"
           onChange={this.handleOnInputChange.bind(this)}
         ></input>
         <button id="go-button" onClick={this.submitCollege.bind(this)}>

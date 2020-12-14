@@ -17,12 +17,14 @@ export default class home extends React.Component {
       userAdmin: false,
       userEmail: "",
       userCollegeGroups: [],
+      username: ""
     };
+    this.pushToForum.bind(this)
   }
 
   componentDidMount(){
     const getData = this.getUserData.bind(this)
-     getData()
+    getData()
   }
 
   showSearchComponent() {
@@ -31,17 +33,20 @@ export default class home extends React.Component {
 
   collapseSearch(e) {
     console.log(e.target.id);
-    if (this.state.showSearch && e.target.id == "search-wrap") {
+    if (this.state.showSearch && e.target.id == "search-wrap") { //User clicked on surrounding of search to collapse
       this.setState({ showSearch: false });
     }
   }
 
-  collapseSearchAndAdd() {
-    this.setState({ showSearch: false });
+  collapseSearchAndAdd(chosenCollege) {
+    this.setState(prevState => ({
+      userCollegeGroups: [...prevState.userCollegeGroups, chosenCollege]
+    }))
+     this.setState({ showSearch: false,  });
   }
 
   getUserData() {
-    console.log("getting");
+    console.log("getting ");
     Axios.get("/homepage", {
       params: {
         username: this.props.location.state.thisUsername,
@@ -63,15 +68,45 @@ export default class home extends React.Component {
         console.log(err);
       });
   }
+  
+  async pushToForum(e){
+    const collegeName = e.target.textContent
+    fetch("http://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json")
+      .then((res) => {
+        return res.json();
+      })
+      .then((collegeInfo) => {
+        var foundCollege;
+        collegeInfo.map(function(college){
+          if(college.name == collegeName){
+            foundCollege = college;
+          }
+        })
+        return foundCollege
+      })
+      .then((foundCollege) =>{
+        console.log("THIS IS FOUND COLLEGE ", foundCollege)
+        this.props.history.push({
+          pathname: '/forum',
+          state: { thisUserID: this.state.userId, college: foundCollege, username: this.props.location.state.thisUsername, userFirstName: this.state.userFirstName, userLastName: this.state.userLastName, userEmail: this.state.userEmail }
+          }); 
+      })    
+  }
 
   render() {
+    const savedColleges = this.state.userCollegeGroups.map(function(college){
+      return( 
+           <CollegeGroup key = {college.name} name={college.name}/>
+             )
+    });
     return (
       <div>
         {this.state.showSearch ? (
           <CollegeSearch dismiss={this.collapseSearch.bind(this)} dismissOnSubmit={this.collapseSearchAndAdd.bind(this)} thisUserId = {this.state.userId}/>
         ) : null}
         <div id="homepage-div">
-          <div id="college-groups">
+          <div id="college-groups" onClick = {this.pushToForum.bind(this)}>
+              {savedColleges}
             {/* <img
               className="no-colleges"
               id="no-colleges-image"

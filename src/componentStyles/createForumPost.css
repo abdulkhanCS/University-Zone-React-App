@@ -1,0 +1,82 @@
+#create-post-container{
+  background-color: powderblue;
+  width: 80%;
+  height: 85%;
+  border-radius: 2%;
+  box-shadow: 3px 3px 3px 4px rgba(0, 0, 0, 0.15);
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#create-post-text{
+  color: white;
+  font-size: 4rem;
+  position: relative;
+  bottom: 5%;
+}
+
+#create-title{
+  width: 30%;
+  height: 15%;
+  position: relative;
+  bottom: 7.5%;
+  border: none;
+}
+
+#create-text{
+  width: 40%;
+  height: 45%;
+  position: relative;
+  bottom: 2.5%;
+  border: none;
+}
+
+#create-text:focus{
+  outline-color: whitesmoke;
+}
+
+#create-title:focus{
+  outline-color: whitesmoke;
+}
+
+#create-post-title-label{
+  color: white;
+  position: relative;
+  bottom: 7.5%;
+}
+
+#create-post-text-label{
+  color: white;
+  position: relative;
+  bottom: 2.5%;
+}
+
+#create-post-submit{
+  font-size: 150%;
+  color: black;
+  width: 15%;
+  height: 7.5%;
+  background-color: white;
+  border: 1.5px solid black;
+  border-radius: 3%;
+  text-align: center;
+
+}
+
+#create-post-submit:hover{
+  color: powderblue;
+  cursor: pointer;
+}
+
+#create-post-wrap {
+  z-index: 1;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+  }
+  
