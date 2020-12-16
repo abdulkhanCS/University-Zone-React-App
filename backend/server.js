@@ -45,6 +45,6 @@ app.use('/homepage', homepageRouter)
 const forumRouter = require('./routes/forum')
 app.use('/forum', forumRouter)
 
-app.listen(port, () => {
+app.listen(process.env.PORT, () => {
     console.log(`Server is running on port: ${port}`);
 });
