@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/co-sphere.github.io/static/css/main.bc282503.chunk.css",
+    "main.js": "/co-sphere.github.io/static/js/main.4e928ff8.chunk.js",
+    "main.js.map": "/co-sphere.github.io/static/js/main.4e928ff8.chunk.js.map",
+    "runtime-main.js": "/co-sphere.github.io/static/js/runtime-main.deab44ce.js",
+    "runtime-main.js.map": "/co-sphere.github.io/static/js/runtime-main.deab44ce.js.map",
+    "static/js/2.657c8935.chunk.js": "/co-sphere.github.io/static/js/2.657c8935.chunk.js",
+    "static/js/2.657c8935.chunk.js.map": "/co-sphere.github.io/static/js/2.657c8935.chunk.js.map",
+    "index.html": "/co-sphere.github.io/index.html",
+    "precache-manifest.2cfef122076b49cad287ec00b4b75655.js": "/co-sphere.github.io/precache-manifest.2cfef122076b49cad287ec00b4b75655.js",
+    "service-worker.js": "/co-sphere.github.io/service-worker.js",
+    "static/css/main.bc282503.chunk.css.map": "/co-sphere.github.io/static/css/main.bc282503.chunk.css.map",
+    "static/js/2.657c8935.chunk.js.LICENSE.txt": "/co-sphere.github.io/static/js/2.657c8935.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.deab44ce.js",
+    "static/js/2.657c8935.chunk.js",
+    "static/css/main.bc282503.chunk.css",
+    "static/js/main.4e928ff8.chunk.js"
+  ]
+}
