@@ -71,7 +71,7 @@ export default class home extends React.Component {
   
   async pushToForum(e){
     const collegeName = e.target.textContent
-    fetch("http://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json")
+    fetch("https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json")
       .then((res) => {
         return res.json();
       })
