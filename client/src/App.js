@@ -12,6 +12,7 @@ function App() {
       <Route path="/user/register" exact component = {Register} />
       <Route path="/homepage" exact component = {Homepage} />
       <Route path="/forum/:college" exact component = {CollegeForum} />
+      <Route path="/forum/" exact component = {CollegeForum} />
     </Router>
   );
 }
