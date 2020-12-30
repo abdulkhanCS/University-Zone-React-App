@@ -21,14 +21,29 @@ export default class collegeForum extends React.Component{
             userAdmin: false,
             userCollegeGroups: [],
             showCreatePost: false,
+            collegeName: "",
+            collegeCountry: "",
+            collegeWebPages: "",
             posts: []
         }
     }
 
     componentDidMount(){
-        this.getPostData()
-        console.log("LOADED")
+      if(typeof this.props.location.state == 'undefined'){ //user not logged in 
+        console.log("You are not logged in")
+        this.props.history.push({
+          pathname: '/',
+          state: {}
+          });
+      }
+      else{
+      this.setState({collegeCountry: this.props.location.state.college.country})
+      this.setState({collegeWebPages: this.props.location.state.college.web_pages})
+      this.setState({collegeName: this.props.location.state.college.name})
+      this.getPostData()
     }
+  }
+
 
     collapseCreatePost(e) {
       if (this.state.showCreatePost && e.target.id == "create-post-wrap") { //User clicked on surrounding of search to collapse
@@ -45,9 +60,9 @@ export default class collegeForum extends React.Component{
     }
 
     getPostData() {
-      console.log("COLLEGE RIGHT HERE IS ", this.props.location.state.college.name)
-        Axios.get("/forum", 
-        {college : this.props.location.state.college.name})
+      const url = "/forum/"+this.props.location.state.college.name
+        Axios.get(url
+        )
           .then((res) => {
             const postData = res.data;
             this.setState({posts: postData})
@@ -77,13 +92,13 @@ export default class collegeForum extends React.Component{
             <div id = "forum-container">
                 <div id = "forum-header">
                      <h3 id = "forum-college-country">
-                      {this.props.location.state.college.country}  
+                      {this.state.collegeCountry}  
                     </h3>
                     <h1 id = "forum-college-name">
-                        {this.props.location.state.college.name}
+                        {this.state.collegeName}
                     </h1>
                     <h3 id = "forum-college-webpages">
-                      {this.props.location.state.college.web_pages}  
+                      {this.state.collegeWebPages}  
                     </h3>
                     <div id = "add-post-to-forum" onClick = {this.showCreatePost.bind(this)}>
                     <h6>

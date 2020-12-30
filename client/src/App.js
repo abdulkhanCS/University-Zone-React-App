@@ -11,7 +11,7 @@ function App() {
       <Route path="/" exact component = {LoginScreen} />
       <Route path="/user/register" exact component = {Register} />
       <Route path="/homepage" exact component = {Homepage} />
-      <Route path="/forum" exact component = {CollegeForum} />
+      <Route path="/forum/:college" exact component = {CollegeForum} />
     </Router>
   );
 }

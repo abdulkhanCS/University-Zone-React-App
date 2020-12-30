@@ -2,6 +2,7 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const cors = require('cors');
 const mongoose = require ('mongoose')
+const Post = require('./models/forumPost.model')
 
 require('dotenv').config()
 
@@ -44,6 +45,11 @@ const homepageRouter = require('./routes/home')
 app.use('/homepage', homepageRouter)
 const forumRouter = require('./routes/forum')
 app.use('/forum', forumRouter)
+
+// app.get('/forum/:college', function(req, res){
+//   console.log("URL IS NOW ", req.url)
+//   console.log(req.params)
+// })
 
 if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging') {
   app.use(express.static('client/build'));

@@ -14,6 +14,8 @@ export default class register extends React.Component {
       password: "",
       email: "",
       admin: true,
+      loggedIn: false,
+      data: null
     };
     this.onSubmit.bind(this);
     this.assign.bind(this);
@@ -80,8 +82,21 @@ export default class register extends React.Component {
       admin: false,
     };
     console.log(user);
-    Axios.post("/user/register", user).then((res) => console.log(res.data));
+    Axios.post("/user/register", user).then((res) => console.log(res.data))
+    .then(()=>{
+      this.login()
+    })
+    .catch(err => console.log("Error: ", err));
   }
+
+  async login() {
+      this.props.history.push({
+      pathname: '/homepage',
+      state: { thisUsername: this.state.username, thisUser: this.state.data, isLoggedIn: true }
+       }); 
+      }
+  
+
 
   render() {
     return (

@@ -59,7 +59,7 @@ export default class loginScreen extends React.Component {
             setTimeout(() => {
               this.props.history.push({
               pathname: '/homepage',
-              state: { thisUsername: this.state.username, thisUser: this.state.data }
+              state: { thisUsername: this.state.username, thisUser: this.state.data, isLoggedIn: true }
               }); 
             }, 400);
           } else {
@@ -87,6 +87,9 @@ export default class loginScreen extends React.Component {
   render() {
     return (
      <div id = "login-wrap">
+       <div id = "university-zone-text">
+          University Zone
+       </div>
       <div id="login">
         <input
           type="text"

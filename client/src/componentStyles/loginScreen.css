@@ -96,3 +96,9 @@ input:focus{
     border-bottom: 3px solid #49d5d1;
 }
 
+#university-zone-text{
+    color: white;
+    font-size: 600%;
+    text-align: center;
+    left: 50%;
+}

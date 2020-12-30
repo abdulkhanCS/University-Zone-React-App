@@ -4,9 +4,8 @@ const User = require('../models/users.model')
 const bodyParser = require('body-parser')
 // const urlencodedParser = bodyParser.urlencoded({ extended: false}) //middleware
 
-router.route('/').get((req, res) => {
-    const college = req.body.college
-    Post.find({college: college})
+router.route('/:college').get((req, res) => {
+    Post.find({college: req.params.college})
     .then(posts => res.json(posts))
     .catch(err =>res.statusMessage(400).json('Error: ' + err))
 })

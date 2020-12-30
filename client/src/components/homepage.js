@@ -1,11 +1,12 @@
 import React from "react";
 import CollegeGroup from "./collegeGroup.js"
 import CollegeSearch from "./collegeSearch.js";
+import LoginScreen from "./loginScreen.js"
 import "../componentStyles/homepage.css";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, withRouter } from "react-router-dom";
 import Axios from "axios";
 
-export default class home extends React.Component {
+class home extends React.Component {
   constructor(props) {
     super();
 
@@ -17,14 +18,23 @@ export default class home extends React.Component {
       userAdmin: false,
       userEmail: "",
       userCollegeGroups: [],
-      username: ""
+      username: "",
     };
     this.pushToForum.bind(this)
   }
 
   componentDidMount(){
-    const getData = this.getUserData.bind(this)
-    getData()
+    if(typeof this.props.location.state == 'undefined'){ //user had logged in 
+      console.log("You are not logged in")
+      this.props.history.push({
+        pathname: '/',
+        state: {}
+        });
+    }
+    else{
+      const getData = this.getUserData.bind(this)
+      getData()
+    }
   }
 
   showSearchComponent() {
@@ -87,7 +97,7 @@ export default class home extends React.Component {
       .then((foundCollege) =>{
         console.log("THIS IS FOUND COLLEGE ", foundCollege)
         this.props.history.push({
-          pathname: '/forum',
+          pathname: '/forum/' + foundCollege.name,
           state: { thisUserID: this.state.userId, college: foundCollege, username: this.props.location.state.thisUsername, userFirstName: this.state.userFirstName, userLastName: this.state.userLastName, userEmail: this.state.userEmail }
           }); 
       })    
@@ -100,7 +110,7 @@ export default class home extends React.Component {
              )
     });
     return (
-      <div>
+      <div> 
         {this.state.showSearch ? (
           <CollegeSearch dismiss={this.collapseSearch.bind(this)} dismissOnSubmit={this.collapseSearchAndAdd.bind(this)} thisUserId = {this.state.userId}/>
         ) : null}
@@ -135,3 +145,5 @@ export default class home extends React.Component {
     );
   }
 }
+
+export default withRouter(home)
