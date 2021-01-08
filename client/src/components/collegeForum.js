@@ -65,7 +65,7 @@ export default class collegeForum extends React.Component{
         )
           .then((res) => {
             const postData = res.data;
-            this.setState({posts: postData})
+            this.setState({posts: postData.reverse()})
             console.log("post data retrieved");
           })
           .catch((err) => {
@@ -79,15 +79,24 @@ export default class collegeForum extends React.Component{
 
       hideCreatePost(){
         this.setState({showCreatePost: false})
+        this.getPostData()
       }
 
     render(){
-         var i = -1;
-        const renderPosts = this.state.posts.map(function(post){
+          var i = -1;
+          var renderPosts = this.state.posts.map(function(post){
           console.log("POST IS ", post)
           i = i + 1
           return(<ForumPost key = {i} post = {post}/>)
         })
+        if(this.state.posts.length == 0){
+          const post = {
+            username: "Empty!",
+            postTitle: "Be the first one to make a post using the Add button!",
+            createdAt: "                    "
+        }
+          renderPosts = <ForumPost post = {post}/>
+        }
         return(
             <div id = "forum-container">
                 <div id = "forum-header">
