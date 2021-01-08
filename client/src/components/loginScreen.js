@@ -67,6 +67,7 @@ export default class loginScreen extends React.Component {
           }
         });
       } else {
+        this.failedToLogin()
         console.log("No matching user found");
       }
     })
