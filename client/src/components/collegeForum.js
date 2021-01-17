@@ -65,8 +65,8 @@ export default class collegeForum extends React.Component{
         )
           .then((res) => {
             const postData = res.data;
-            this.setState({posts: postData.reverse()})
             console.log("post data retrieved");
+            this.setState({posts: postData.reverse()})
           })
           .catch((err) => {
             console.log(err);
@@ -83,6 +83,7 @@ export default class collegeForum extends React.Component{
       }
 
     render(){
+        console.log("rendering...")
           var i = -1;
           var renderPosts = this.state.posts.map(function(post){
           console.log("POST IS ", post)
