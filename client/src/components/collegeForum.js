@@ -49,7 +49,6 @@ export default class collegeForum extends React.Component{
       if (this.state.showCreatePost && e.target.id == "create-post-wrap") { //User clicked on surrounding of search to collapse
         this.setState({ showCreatePost: false });
       }
-      console.log("STATE IS ", this.state.showCreatePost)
     }
   
     collapseCreatePostAndSubmit(chosenCollege) {
@@ -65,9 +64,7 @@ export default class collegeForum extends React.Component{
         )
           .then((res) => {
             const postData = res.data;
-            console.log("post data retrieved");
             this.setState({posts: postData.reverse()})
-            this.forceUpdate()
           })
           .catch((err) => {
             console.log(err);
@@ -84,10 +81,9 @@ export default class collegeForum extends React.Component{
       }
 
     render(){
-        console.log("rendering...")
+        setTimeout(this.getPostData(), 5000);
           var i = -1;
           var renderPosts = this.state.posts.map(function(post){
-          console.log("POST IS ", post)
           i = i + 1
           return(<ForumPost key = {i} post = {post}/>)
         })
