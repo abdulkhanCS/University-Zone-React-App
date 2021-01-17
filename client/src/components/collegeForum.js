@@ -67,6 +67,7 @@ export default class collegeForum extends React.Component{
             const postData = res.data;
             console.log("post data retrieved");
             this.setState({posts: postData.reverse()})
+            this.forceUpdate()
           })
           .catch((err) => {
             console.log(err);
