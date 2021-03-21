@@ -5,20 +5,22 @@
     height: 20%;
     background-color: powderblue;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    text-align: center;
 }
 
 #forum-college-name{
-    font-size: 3rem;    
+    font-size: 40px;
 }
 
 #forum-college-country{
-    
+    font-size: 15px;
 }
 
 #forum-college-webpages{
-   
+   font-size: 15px;
 }
 
 #forum-feed{
@@ -60,4 +62,16 @@
     cursor: pointer;
     background-color: white;
     color: black;
+}
+
+@media only screen and (max-width: 800px){
+    #forum-college-name{
+        font-size: 30px;
+    }
+    #forum-college-country{
+        font-size: 10px;
+    }
+    #forum-college-webpages{
+        font-size: 10px;
+    }
 }

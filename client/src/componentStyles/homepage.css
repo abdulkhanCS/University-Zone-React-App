@@ -101,3 +101,29 @@
     position: relative;
     left: 20%;
 }
+
+@media only screen and (max-width: 1000px){
+
+    #homepage-menu{
+        display: none;
+    }
+    #profile-section{
+        width: 99%;
+    }
+    #college-groups{
+        width: 99%;
+    }
+    #profile-picture{
+        width: 90px;
+        height: 90px;
+    }
+    #profile-section{
+        align-items: center;
+        justify-content: center;
+    }
+    #profile-name{
+        width: 50%;
+        font-size: 40px;
+        position: relative;
+    }
+}

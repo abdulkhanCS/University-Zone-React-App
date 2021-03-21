@@ -53,3 +53,22 @@
     left: 5%;
     top: 5%; 
 }
+
+@media only screen and (max-width: 1000px){
+    #forum-post-profile-pic{
+        width: 55px;
+        height: 55px;
+        position: absolute;
+        top: 40px;
+        left: 10px;
+    }
+    
+    #forum-post-name{
+        position: absolute;
+        font-size: 36px;
+        text-align: center;
+        right: 0%;
+        top: 40px;
+    }
+
+}
