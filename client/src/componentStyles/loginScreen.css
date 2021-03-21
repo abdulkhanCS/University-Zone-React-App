@@ -103,10 +103,10 @@ input:focus{
     left: 50%;
 }
 
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 1000px){
 
     #login{
-        border-radius: 100%;
+        border-radius: 0;
         width: 50%;
         height: 40%;
         position: absolute;
@@ -115,7 +115,7 @@ input:focus{
     }
 
     input{
-        height: 10px;
+        height: 25px;
     }
 
     #university-zone-text{
